@@ -1,0 +1,7 @@
+name: console_app
+
+environment:
+  sdk: '^3.5.1'
+dev_dependencies:
+  test: ^1.25.8
+
