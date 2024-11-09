@@ -12,7 +12,8 @@ void _cli() {
       case 1:
         employees = [...employees, getData()];
       case 2:
-        employees = updateEmp(employees);
+        int i = employees.indexWhere((emp) => emp.name == getName());
+        employees[i] = getData();
       case 3:
         print(employees.firstWhere((emp) => emp.name == getName()));
       case 4:
@@ -21,19 +22,6 @@ void _cli() {
         exit(0);
     }
   }
-}
-
-List<Employee> updateEmp(List<Employee> employees) {
-  String name = getName();
-
-  for (int i = 0; i < employees.length; i++) {
-    if (name == employees[i].name) {
-      employees[i] = getData();
-      break;
-    }
-  }
-
-  return employees;
 }
 
 Employee getData() => Employee(getName(), getPhone(), getEmail(), getRate());
