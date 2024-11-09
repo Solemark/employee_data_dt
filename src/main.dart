@@ -1,8 +1,10 @@
 import 'dart:io';
 import 'employee.dart';
 
+/// program entry point
 void main() => _cli();
 
+/// runs the cli component of the program
 void _cli() {
   print("Employee CLI 1.0");
   List<Employee> employees = [];
@@ -24,8 +26,10 @@ void _cli() {
   }
 }
 
+/// Create a new [Employee]
 Employee getData() => Employee(getName(), getPhone(), getEmail(), getRate());
 
+/// get new [Employee] name as [String]
 String getName() {
   String? name = null;
   while (name == null) {
@@ -35,6 +39,7 @@ String getName() {
   return name;
 }
 
+/// get new [Employee] phone as [String]
 String getPhone() {
   String? phone = null;
   while (phone == null) {
@@ -44,6 +49,7 @@ String getPhone() {
   return phone;
 }
 
+/// get new [Employee] email as [String]
 String getEmail() {
   String? email = null;
   while (email == null) {
@@ -53,6 +59,7 @@ String getEmail() {
   return email;
 }
 
+/// get new [Employee] rate as [double]
 double getRate() {
   double? rate = null;
   while (rate == null) {
