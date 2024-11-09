@@ -1,4 +1,4 @@
-name: console_app
+name: employee_data
 
 environment:
   sdk: '^3.5.1'
