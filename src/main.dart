@@ -9,7 +9,7 @@ void _cli() {
   print("Employee CLI 1.0");
   List<Employee> employees = [];
   while (true) {
-    print("Do you want to: 1. CREATE, 2. UPDATE, 3. SEARCH, 4. REMOVE or 0. EXIT");
+    print("Do you want to: 1. CREATE, 2. UPDATE, 3. SEARCH, 4. REMOVE, 5. LIST or 0. EXIT");
     switch (int.parse(stdin.readLineSync() ?? "0")) {
       case 1:
         employees = [...employees, getData()];
@@ -20,6 +20,8 @@ void _cli() {
         print(employees.firstWhere((emp) => emp.name == getName()));
       case 4:
         employees.removeWhere((employee) => employee.name == getName());
+      case 5:
+        print(employees);
       default:
         exit(0);
     }
@@ -31,42 +33,52 @@ Employee getData() => Employee(getName(), getPhone(), getEmail(), getRate());
 
 /// get new [Employee] name as [String]
 String getName() {
-  String? name = null;
-  while (name == null) {
+  String name = "";
+  while (true) {
     print("Enter employee name: ");
-    name = stdin.readLineSync();
+    name = (stdin.readLineSync() ?? "").trim();
+    if (name != "") {
+      break;
+    }
   }
   return name;
 }
 
 /// get new [Employee] phone as [String]
 String getPhone() {
-  String? phone = null;
-  while (phone == null) {
+  String phone = "";
+  while (true) {
     print("Enter employee phone: ");
-    phone = stdin.readLineSync();
+    phone = (stdin.readLineSync() ?? "").trim();
+    if (phone != "") {
+      break;
+    }
   }
   return phone;
 }
 
 /// get new [Employee] email as [String]
 String getEmail() {
-  String? email = null;
-  while (email == null) {
+  String email = "";
+  while (true) {
     print("Enter employee email: ");
-    email = stdin.readLineSync();
+    email = (stdin.readLineSync() ?? "").trim();
+    if (email != "") {
+      break;
+    }
   }
   return email;
 }
 
 /// get new [Employee] rate as [double]
 double getRate() {
-  double? rate = null;
-  while (rate == null) {
+  double rate = 0;
+  while (true) {
     print("Enter employee rate: ");
-    String? out = stdin.readLineSync();
-    if (out != null) {
+    String out = (stdin.readLineSync() ?? "").trim();
+    if (out != "") {
       rate = double.parse(out);
+      break;
     }
   }
   return rate;
