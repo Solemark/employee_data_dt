@@ -107,6 +107,5 @@ class CLI {
     }
   }
 
-  @override
   String toString() => this.employees.join('\n');
 }
